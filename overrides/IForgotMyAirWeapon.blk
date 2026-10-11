@@ -1,0 +1,5 @@
+include "#/develop/gameBase/gameData/weapons/weapons/ask3lad/Laser9000.blk"
+
+"@override:shotFreq":r=50
+"@override:reloadTime":r=1
+"@override:bEnablePause":b=no

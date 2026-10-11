@@ -1,0 +1,14 @@
+include "#/develop/gameBase/gamedata/weapons/ask3lad/rocket_su_rds37_hydra.blk"
+
+//Regular Ammo Override
+"@override:bullet" { "@override:speed":r=200}
+
+//Rocket Override (SturmTiger)
+"@override:bullet" { "@override:rocket" { "@override:startSpeed":r=200}}
+"@override:bullet" { "@override:rocket" { "@override:maxSpeed":r=200}}
+"@override:bullet" { "@override:rocket" { "@override:endSpeed":r=200}}
+
+//Rocket Override (RBT-5)
+"@override:rocket" { "@override:startSpeed":r=200}
+"@override:rocket" { "@override:maxSpeed":r=200}
+"@override:rocket" { "@override:endSpeed":r=200}

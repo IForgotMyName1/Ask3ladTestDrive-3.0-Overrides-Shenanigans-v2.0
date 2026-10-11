@@ -1,0 +1,32 @@
+// "Polished up version with fuse sensitivity" (see the type91 apc / type0 he overrides at the bottom)
+
+include "#/develop/gameBase/gameData/Weapons/navalModels_weapons/460mm_45_type_94_naval_user_cannon.blk "
+
+//Regular Ammo Override
+"@override:bullet" { "@override:speed":r=200}
+
+//Rocket Override (SturmTiger)
+"@override:bullet" { "@override:rocket" { "@override:startSpeed":r=200}}
+"@override:bullet" { "@override:rocket" { "@override:maxSpeed":r=200}}
+"@override:bullet" { "@override:rocket" { "@override:endSpeed":r=200}}
+
+//Rocket Override (RBT-5)
+"@override:rocket" { "@override:startSpeed":r=200}
+"@override:rocket" { "@override:maxSpeed":r=200}
+"@override:rocket" { "@override:endSpeed":r=200}
+
+"@override:bullet" { recoilMultiplier:r=0.0 }
+
+"@override:recoilOffset":r=0.0
+"@override:recoilTimes":p2=0.01, 0.01
+
+"@override:460mm_jp_type91_navy_apc" {
+    "@override:bullet" {
+    "@override:mass":r=300.0
+    "@override:explodeTreshold":r=150.0
+    "@override:fuseDelay":r=0.12
+    "@override:damage" { "@override:kinetic" { "@override:demarrePenetrationK":r=3.0 }}
+  }
+}
+
+"@override:460mm_jp_common_type0_navy_he" { "@override:bullet" { "@override:mass":r=50.0 }}

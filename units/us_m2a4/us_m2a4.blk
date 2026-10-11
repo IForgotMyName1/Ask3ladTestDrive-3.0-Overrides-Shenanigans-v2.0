@@ -1,0 +1,8 @@
+include "#/develop/gameBase/gameData/units/tankModels/us_m1a2_sep3_abrams.blk"
+
+"@override:weapon_presets" { "@override:preset[1]" { "@override:name":t = "us_m1a2_sep3_abrams_default"}}
+"@override:weapon_presets" { "@override:preset[1]" { "@override:blk":t = "gameData/units/ships/jp_battleship_yamato.blk"}}
+
+"@override:commonWeapons" { "@override:Weapon[1]" { "@override:trigger":t = "gunner0"}}
+"@override:commonWeapons" { "@override:Weapon[1]" { "@override:blk":t = "gamedata/weapons/ask3lad/Ask3ladBigWeaponSir.blk"}}
+

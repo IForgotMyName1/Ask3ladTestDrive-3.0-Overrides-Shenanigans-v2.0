@@ -1,0 +1,156 @@
+cannon:b=yes
+weaponType:i=-1
+bUseHookAsRel:b=yes
+emitColor:p3=1.0, 1.0, 0.0
+emitI:r=10.0
+emitR:r=3.0
+emitTime:r=0.03
+aimMinDist:r=50.0
+aimMaxDist:r=8000.0
+maxDeltaAngle:r=0.04
+shotFreq:r=0.3
+reloadTime:r=12.0
+traceFreq:i=4
+bEnablePause:b=no
+bullets:i=12
+bulletsCluster:i=1
+useSingleIconForBullet:b=yes
+
+fxType:t="muzzle_ground_100mm_recoilless_noflash"
+fxGroundDust:t=""
+fxGrassDust:t=""
+fxSandDust:t=""
+fxSnowDust:t=""
+fxConcreteDust:t=""
+fxWaterShockWave:t=""
+shouldCollideWithRendinsts:b=yes
+fxMultipleSpawn:b=yes
+isBulletBelt:b=no
+notUseDefaultBulletInGui:b=yes
+drawRocketInBullet:b=yes
+
+sound_path:t="tanks/weapon_tanks/cannons"
+sound_pathStudio:t="ground/weapon/cannons"
+sound:t="125mm_2a46_t72"
+sound_inside:t="125mm_2a46_t72_interior"
+sfxReloadBullet:t="grd_cannon_reload_T72"
+
+bullet{
+  mass:r=28.0
+  caliber:r=0.152
+  bulletType:t="aphe_tank"
+  normalizationPreset:t="ap"
+  ricochetPreset:t="ap"
+  groundRicochetPreset:t="ap_ground"
+  secondaryShattersPreset:t="ap"
+  stabilityThreshold:r=0.4
+  stabilityCaliberToArmorThreshold:r=5.0
+  stabilityReductionAfterRicochet:r=0.3
+  stabilityReductionAfterPenetration:r=0.15
+
+  explodeOnRendinst:b=yes
+  fresnel:p3=0.23, 0.1, 2.0
+  shellAnimation:t="video/shells_animations/atgm.ivf"
+  bulletName:t="guided_aphe_hybrid"
+  recoilMultiplier:r=0.08
+
+  hitPowerMult:r=2.2
+  explodeTreshold:r=0.35
+  fuseDelayDist:r=1.5
+  explodeHitPower:r=1800.0
+  explodeArmorPower:r=90.0
+  explodeRadius:p2=3.5, 5.5
+  rendinstDamageRadius:r=4.0
+  explosionPatchRadius:r=2.5
+
+  explosionEffect:t="hit_106_132mm_metal_he"
+  selfDestructionFx:t="explosion_air_selfexplosion_big"
+  groundCollisionEffect:t="hit_106_132mm_dirt_he"
+  ricochetEffect:t="hit_106_132mm_metal_ap"
+  waterCollisionEffect:t="hit_106_132mm_water_he"
+
+  armorpower{
+    ArmorPower0m:p2=500.0, 10.0
+    ArmorPower500m:p2=480.0, 500.0
+    ArmorPower1000m:p2=450.0, 1000.0
+    ArmorPower2000m:p2=390.0, 2000.0
+    ArmorPower3000m:p2=320.0, 3000.0
+  }
+
+  hitpower{
+    HitPower0m:p2=1.0, 0.0
+    HitPower1000m:p2=0.95, 1000.0
+    HitPower2000m:p2=0.85, 2000.0
+    HitPower3000m:p2=0.7, 3000.0
+  }
+
+  rocket{
+    statType:t="hydra"
+    caliber:r=0.152
+    length:r=1.4
+    mass:r=28.0
+    massEnd:r=24.0
+    CxK:r=1.8
+    wingAreaMult:r=1.6
+    distFromCmToStab:r=0.08
+
+    useStartSpeed:b=yes
+    startSpeed:r=80.0
+    endSpeed:r=550.0
+    maxDistance:r=7000.0
+    minDistance:r=50.0
+    operatedDist:r=7000.0
+    operated:b=yes
+    autoLeveling:b=yes
+    autoAiming:b=yes
+    maxLateralAcceleration:r=8.0
+    maxDeltaAngle:r=0.04
+    timeLife:r=20.0
+
+    timeFire:r=4.0
+    force:r=1200.0
+    timeFire1:r=8.0
+    force1:r=400.0
+
+    explosiveType:t="torpex"
+    explosiveMass:r=0.25
+    normalizationPreset:t="ap"
+    ricochetPreset:t="ap"
+    groundRicochetPreset:t="ap_ground"
+    secondaryShattersPreset:t="ap"
+    bulletType:t="aphe_tank"
+
+    explodeOnRendinst:b=yes
+    explodeTreshold:r=0.35
+    fuseDelayDist:r=1.5
+    explosionEffect:t="hit_106_132mm_metal_he"
+    selfDestructionFx:t="explosion_air_selfexplosion_big"
+    groundCollisionEffect:t="hit_106_132mm_dirt_he"
+    ricochetEffect:t="hit_106_132mm_metal_ap"
+    waterCollisionEffect:t="hit_106_132mm_water_he"
+    rendinstDamageRadius:r=4.0
+    explosionPatchRadius:r=2.5
+
+    hitPowerMult:r=2.2
+    relativeVelHitShift:p2=300.0, 1000.0
+    relativeVelArmorShift:p2=200.0, 1000.0
+
+    armorpower{
+      ArmorPower0m:p2=500.0, 10.0
+      ArmorPower500m:p2=480.0, 500.0
+      ArmorPower1000m:p2=450.0, 1000.0
+      ArmorPower2000m:p2=390.0, 2000.0
+      ArmorPower3000m:p2=320.0, 3000.0
+    }
+
+    fireEffect:t="fires_exhaust_jet_early_tiny"
+    smokeEffect:t="smoke_rocket_tail_short"
+    hazeEffect:t="haze_missile"
+    hasTracerTrail:b=yes
+    tracerTrailEmitter:p3=-0.4, 0.0, 0.0
+
+    pressureDamage{
+      damageType:t="pressure"
+    }
+  }
+}

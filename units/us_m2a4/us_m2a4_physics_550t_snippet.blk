@@ -1,0 +1,7 @@
+// only for ground
+
+"@override:VehiclePhys" { "@override:Mass"   { "@override:Empty":r=550000}}
+"@override:VehiclePhys" { "@override:engine" { "@override:horsePowers":r=1500}}
+"@override:VehiclePhys" { "@override:engine" { "@override:maxRPM":r=5200}}
+"@override:VehiclePhys" { "@override:engine" { "@override:minRPM":r=800}}
+"@override:mass":r=550000

@@ -1,0 +1,16 @@
+// Ask3lad Test Drive 3.0: Cannon Override (Quick Reload / shells). Restore Original Game Files removes it.
+include "#/develop/gameBase/gamedata/Weapons/groundModels_weapons/152mm_LP83_user_cannon.blk"
+
+//Quick Reload: 15 shots per second
+"@override:shotFreq":r=15
+reloadTime:r=0.067
+"@override:reloadTime":r=0.067
+bEnablePause:b=no
+"@override:bEnablePause":b=no
+"@override:recoilOffset":r=0.0
+"@override:recoilTimes":p2=0.01, 0.01
+"@override:bullet" { recoilMultiplier:r=0.0 }
+
+//Shells: 1 kg
+"@override:bullet" { "@override:mass":r=1 }
+"@override:152mm_ussr_HE" { "@override:bullet" { "@override:mass":r=1 }}

@@ -1,0 +1,150 @@
+// Custom hybrid: IS-2 APHE ballistics + FV4005 HESH explosion
+// Name suggestion: 122mm_aphe_hesh_hybrid
+
+cannon:b=yes
+weaponType:i=-1
+bUseHookAsRel:b=yes
+emitColor:p3=1.0, 1.0, 0.0
+emitI:r=10.0
+emitR:r=3.0
+emitTime:r=0.03
+aimMinDist:r=10.0
+aimMaxDist:r=4000.0
+maxDeltaAngle:r=0.15
+shotFreq:r=0.15
+reloadTime:r=15.0
+traceFreq:i=4
+bEnablePause:b=no
+bullets:i=20
+bulletsCluster:i=1
+fxType:t="muzzle_ground_large"
+fxGroundDust:t="dust_ground_wave_dirt_big"
+fxGrassDust:t="dust_ground_wave_grass_big"
+fxSandDust:t="dust_ground_wave_sand_big"
+fxSnowDust:t="dust_ground_wave_snow_big"
+fxConcreteDust:t="dust_ground_wave_asphalt_big"
+fxWaterShockWave:t="dust_waterwave_big"
+shouldCollideWithRendinsts:b=yes
+sfxReloadBullet:t="grd_cannon_reload_2a70"
+fxMultipleSpawn:b=yes
+isBulletBelt:b=no
+notUseDefaultBulletInGui:b=yes
+
+
+bullet{
+  mass:r=25.0                    // IS-2 APHE class
+  caliber:r=0.122
+  damageCaliber:r=0.122
+  ballisticCaliber:r=0.122
+  speed:r=800.0                  // typical BR-471 muzzle velocity
+  maxDistance:r=12000.0
+  normalizationPreset:t="ap"
+  ricochetPreset:t="ap"
+  groundRicochetPreset:t="ap_ground"
+  secondaryShattersPreset:t="ap_large_caliber"
+  bulletType:t="aphe_tank"       // keeps kinetic + explosive behaviour
+  slopeEffectPreset:t="ap"
+  fresnel:p3=0.23, 0.1, 2.0
+  shellAnimation:t="video/shells_animations/aphe.ivf"
+
+  // Kinetic performance (IS-2 style)
+  relativeVelHitShift:p2=300.0, 1000.0
+  relativeVelArmorShift:p2=200.0, 1000.0
+  hitPowerMult:r=1.0
+
+  hitpower{
+    HitPower0m:p2=1.0, 0.0
+    HitPower500m:p2=0.95, 500.0
+    HitPower1000m:p2=0.9, 1000.0
+    HitPower2000m:p2=0.8, 2000.0
+    HitPower3000m:p2=0.7, 3000.0
+  }
+
+  armorpower{
+    ArmorPower0m:p2=205.0, 10.0
+    ArmorPower500m:p2=190.0, 500.0
+    ArmorPower1000m:p2=175.0, 1000.0
+    ArmorPower1500m:p2=160.0, 1500.0
+    ArmorPower2000m:p2=145.0, 2000.0
+  }
+
+  // HESH-style explosion (FV4005 scale, tuned down a bit for 122 mm)
+  hasProximityFuse:b=no          // set to yes if you want airburst
+  explodeTreshold:r=0.05
+  explodeHitPower:r=3500.0       // big HESH pressure
+  explodeArmorPower:r=180.0
+  explodeRadius:p2=8.0, 12.0     // generous squash-head radius
+  rendinstDamageRadius:r=6.0
+  explosionEffect:t="bomb_expl_200kg"
+  waterExplosionEffect:t="water_explosion_big"
+  selfDestructionFx:t="explosion_air_selfexplosion_big"
+  groundCollisionEffect:t="hit_106_132mm_dirt_ap"
+  ricochetEffect:t="hit_106_132mm_metal_ap"
+  waterCollisionEffect:t="hit_106_132mm_water_ap"
+  groundRicochetEffect:t="hit_106_132mm_dirt_ap"
+  waterRicochetEffect:t="hit_106_132mm_water_ap"
+  explosionPatchRadius:r=3.5
+
+  // Optional proximity fuse (uncomment / enable if wanted)
+  /*
+  hasProximityFuse:b=yes
+  proximityFuse{
+    radius:r=15.0
+    armDistance:r=50.0
+    detectAirUnits:b=yes
+    detectGroundUnits:b=yes
+    detectGround:b=yes
+    detectShells:b=no
+  }
+  */
+
+  stability{
+    precessionDamping:r=0.4
+    ricochetAnglePrecessionFactor:r=1.0
+    ricochetAngleOmegaFactor:r=0.25
+    slopeToOmega:p4=1.0, 10.0, 0.0, 1.0
+    angleLossStabilizationAfterRicochet:r=1.0
+  }
+
+  DamageParts{
+    body{
+      hp:r=100.0
+      armorClass:t="tank_structural_steel"
+      armorThickness:r=20.0
+    }
+  }
+
+  DamageEffects{
+    part{
+      name:t="body"
+      onKill{
+        destabilization:r=1.0
+        impulse:r=0.01
+      }
+    }
+  }
+
+  collisions{
+    default{
+      fx:t="hit_106_132mm_dirt_ap"
+      ricochetFx:t="hit_106_132mm_dirt_ap"
+    }
+    steel{
+      fx:t="hit_106_132mm_metal_ap"
+      ricochetFx:t="hit_106_132mm_metal_ap"
+    }
+    metal{
+      fx:t="hit_106_132mm_metal_ap"
+      ricochetFx:t="hit_106_132mm_metal_ap"
+    }
+    tank_structural_steel{
+      fx:t="hit_106_132mm_metal_ap"
+      ricochetFx:t="hit_106_132mm_metal_ap"
+    }
+    concrete{
+      fx:t="hit_106_132mm_stone_ap"
+      ricochetFx:t="hit_106_132mm_stone_ap"
+    }
+    // … (copy the rest of the collision map from your original if needed)
+  }
+}

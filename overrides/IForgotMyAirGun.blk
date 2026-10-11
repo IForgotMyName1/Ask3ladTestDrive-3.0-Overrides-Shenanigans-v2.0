@@ -1,0 +1,39 @@
+include "#/develop/gameBase/gamedata/weapons/navalmodels_weapons/460mm_45_type_94_naval_user_cannon.blk"
+
+// ---- gun body weight ----
+mass:r=0.000001
+
+// ---- FAST RELOAD ----
+// shots per second (stock 0.2 = one shot every 5 s). Higher = faster
+"@override:shotFreq":r=9.2
+// Lower = faster
+reloadTime:r=0.11
+"@override:bEnablePause":b=no
+
+// ---- recoil (gun level) ----
+recoilOffset:r=0.0
+recoilTimes:p2=0.01, 0.01
+
+// ---- NO JAMMING ----
+// tank guns like this one have no jam/overheat setting, so nothing is needed here.
+// For AIR cannons (GSh-301 etc.) that jam, remove the // from the next line (UNTESTED):
+// "@override:overheat" { "@override:overheat":p2=100000, 0 }
+
+// ---- AMMO WEIGHT ----
+// it comes from the round count: set  bullets:i = 30  on the cannon entries in ask3lad_air_player.blk
+
+"@override:bullet" { recoilMultiplier:r=0.0 }
+
+"@override:recoilOffset":r=0.0
+"@override:recoilTimes":p2=0.01, 0.01
+
+"@override:460mm_jp_type91_navy_apc" {
+    "@override:bullet" {
+    "@override:mass":r=300.0
+    "@override:explodeTreshold":r=150.0
+    "@override:fuseDelay":r=0.12
+    "@override:damage" { "@override:kinetic" { "@override:demarrePenetrationK":r=3.0 }}
+  }
+}
+
+"@override:460mm_jp_common_type0_navy_he" { "@override:bullet" { "@override:mass":r=50.0 }}

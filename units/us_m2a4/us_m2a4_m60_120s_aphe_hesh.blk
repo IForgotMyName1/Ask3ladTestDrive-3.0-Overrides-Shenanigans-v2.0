@@ -1,0 +1,13 @@
+include "#/develop/gameBase/gameData/units/tankModels/us_m60_120s.blk"
+
+"@override:weapon_presets" { "@override:preset[1]" { "@override:name":t = "us_m60_120s_default"}}
+"@override:weapon_presets" { "@override:preset[1]" { "@override:blk":t = "gameData/weapons/ask3lad/cannon_is2_fv4005_v2.blk"}}
+
+"@override:commonWeapons" { "@override:Weapon[1]" { "@override:trigger":t = "gunner0"}}
+"@override:commonWeapons" { "@override:Weapon[1]" { "@override:blk":t = "gameData/weapons/ask3lad/Ask3ladBigWeaponSir.blk"}}
+
+"@override:VehiclePhys" { "@override:Mass"   { "@override:Empty":r=55000}}
+"@override:VehiclePhys" { "@override:engine" { "@override:horsePowers":r=1500}}
+"@override:VehiclePhys" { "@override:engine" { "@override:maxRPM":r=5200}}
+"@override:VehiclePhys" { "@override:engine" { "@override:minRPM":r=800}}
+"@override:mass":r=55000
