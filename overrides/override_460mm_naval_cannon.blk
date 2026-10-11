@@ -1,5 +1,3 @@
-// "Polished up version with fuse sensitivity" (see the type91 apc / type0 he overrides at the bottom)
-
 include "#/develop/gameBase/gameData/Weapons/navalModels_weapons/460mm_45_type_94_naval_user_cannon.blk "
 
 //Regular Ammo Override
